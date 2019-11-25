@@ -61,9 +61,7 @@ def main
 
     end
 
-    puts
-    puts "Thanks for using Zendesk Searcher!"
-    puts
+    Display.print_sign_out
 
 end
 
