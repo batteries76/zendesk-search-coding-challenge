@@ -10,19 +10,11 @@ def main
     organisations = Loader.load_organisations
     users = Loader.load_users
 
-    # tickets.each do |ticket|
-    #     print ticket
-    #     puts
-    # end
-
     data = {
         tickets: tickets,
         organisations: organisations,
         users: users
     }
-
-    puts
-    puts "=================="
 
     Display.print_welcome
     Display.print_options
@@ -30,39 +22,48 @@ def main
 
     while menu_selection != 'q'
 
-        puts "Which field would you like to search within?"
-        field_selection = Display.get_user_selection
-
-        puts "Which value would you like to search for within that field?"
-        value_selection = Display.get_user_selection
-
-        query = {
-            field: field_selection,
-            value: value_selection
-        }
-
         search_instance = Searcher.new(data)
+        valid_path_array = ['1', '2', '3', 'q']
 
-        if menu_selection == '1'
-            results = search_instance.search_tickets(query)
-        elsif menu_selection == '2'
-            results = search_instance.search_organisations(query)
-        elsif menu_selection == '3'
-            results = search_instance.search_users(query)
-        else 
-            puts "Sorry, I did not understand that response."
+        if valid_path_array.include?(menu_selection)
+
+            puts
+            puts "Which field would you like to search within?"
+            field_selection = Display.get_user_selection
+
+            puts
+            puts "Which value would you like to search for within that field?"
+            value_selection = Display.get_user_selection
+
+            query = {
+                field: field_selection,
+                value: value_selection
+            }
+
+            if menu_selection == '1'
+                results = search_instance.search_tickets(query)
+            elsif menu_selection == '2'
+                results = search_instance.search_organisations(query)
+            elsif menu_selection == '3'
+                results = search_instance.search_users(query)
+            else 
+                break
+            end
+
+            Display.print_results(results)
+
+        else
+            Display.print_invalid_menu_selection
         end
 
-        Display.print_results(results)
-
-        puts "=================="
-        puts
         Display.print_options
         menu_selection = Display.get_user_selection
 
     end
 
+    puts
     puts "Thanks for using Zendesk Searcher!"
+    puts
 
 end
 

@@ -1,11 +1,17 @@
 class Display
 
     def self.print_welcome
+        puts
+        puts "=================="
+        puts
         puts "Hi, welcome to Zendesk Search!"
-        puts "At any time you can press 'q' to quit. Hit 'Enter/return' to continue"
+        puts 
     end
 
     def self.print_options
+        puts
+        puts "=================="
+        puts
         puts "Here are your searching options:"
         puts "Enter '1' to search tickets."
         puts "Enter '2' to search organisations."
@@ -14,21 +20,32 @@ class Display
     end
 
     def self.get_user_selection
+        print "=> "
         input = gets.chomp
     end
 
     def self.print_results(results)
         if results
             puts
-            puts "Here are your results:"
-            print results
+            puts "*** Here are your results: ***"
             puts
+            puts '{'
+            results.each do |key, value|
+                puts "    #{key}: #{value}"
+            end
+            puts '}'
             puts
         else 
             puts
-            puts "Sorry, your search did not return any results."
+            puts "*** Sorry, your search did not return any results. ***"
             puts
         end
+    end
+
+    def self.print_invalid_menu_selection
+        puts
+        puts "Sorry, that is not a valid menu option."
+        puts
     end
 
 end

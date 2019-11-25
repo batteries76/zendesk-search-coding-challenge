@@ -25,21 +25,25 @@ class Searcher
     def search_general(query, data_type)
         search_field = query[:field]
         search_value = query[:value]
+
         data_type.each do |data_element|
-            # puts "TICKET"
-            # print ticket
-            # puts
-            # puts "FIELD"
-            # puts search_field
-            # puts "VALUE"
-            # puts search_value
-            # puts "TICKET at FIELD"
-            # puts ticket[search_field]
-            # exit
-            if data_element[search_field] == search_value
+            if search_field == "domain_names"
+                data_element["domain_names"].each do |domain|
+                    if domain == search_value
+                        return data_element
+                    end
+                end
+            elsif search_field == "tags"
+                data_element["tags"].each do |tag|
+                    if tag == search_value
+                        return data_element
+                    end
+                end
+            elsif data_element[search_field] == search_value
                 return data_element
             end
         end
+
         return nil
     end 
 
