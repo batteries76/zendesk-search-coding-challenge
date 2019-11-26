@@ -32,6 +32,8 @@ Using RSpec 3.8
 - downcase and upcase issues (and other user input issues)
 - checking for booleans
 - forgiveness around underscores
+- checking in the nested layer for arrays. why not kind of?
+- yes, I have Rubocop, but I also have some preferences around certain things. Letting some code breathe, and other times keeping it compact.
 
 ## extensions
 - dates

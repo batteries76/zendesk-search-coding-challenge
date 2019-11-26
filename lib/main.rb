@@ -51,7 +51,7 @@ class Main
                                 
                                 break
 
-                            # EXIT THE WHOLE PROGRAM IF THEY WANT TO QUIT
+                            # EXIT THE WHOLE PROGRAM IF THEY WANT TO QUIT FROM THE SUB MENU
                             elsif menu_selection == 'q'
 
                                 Display.print_sign_out
