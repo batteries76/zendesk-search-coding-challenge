@@ -2,13 +2,14 @@
 Use your ruby manager to change to 2.5.0
 if it is rbenv:
 > rbenv install 2.5.0
+
 > rbenv local 2.5.0
 
 Then install the gems
 > bundle install
 
 To run the search program
-> ruby lib/main.rb
+> ruby lib/run.rb
 
 ## TBD
 1. Write some tests
@@ -30,6 +31,7 @@ Using RSpec 3.8
 - trying to make code dry trade-offs
 - downcase and upcase issues (and other user input issues)
 - checking for booleans
+- forgiveness around underscores
 
 ## extensions
 - dates

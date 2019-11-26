@@ -2,17 +2,17 @@ class Display
 
     def self.print_welcome
         puts
-        puts "=================="
+        puts '=================='
         puts
-        puts "Hi! Welcome to Zendesk Search!"
+        puts 'Hi! Welcome to Zendesk Search!'
         puts 
     end
 
     def self.print_main_options
         puts
-        puts "=================="
+        puts '=================='
         puts
-        puts "Here are your MAIN options:"
+        puts 'Here are your MAIN options:'
         puts
         puts "  Enter '1' to SEARCH Zendesk."
         puts "  Enter '2' to see a LIST of FIELD OPTIONS."
@@ -21,9 +21,9 @@ class Display
 
     def self.print_sub_menu_options
         puts
-        puts "=================="
+        puts '=================='
         puts
-        puts "Here are your SEARCHING options:"
+        puts 'Here are your SEARCHING options:'
         puts
         puts "  Enter '1' to search TICKETS."
         puts "  Enter '2' to search ORGANISATIONS."
@@ -34,14 +34,14 @@ class Display
 
     def self.get_user_selection
         puts
-        print "  => "
+        print '  => '
         input = gets.strip
     end
 
     def self.print_results(results)
         if results.length > 0
             puts
-            puts "*** Here are your results: ***"
+            puts '*** Here are your results: ***'
             puts
             if results.length == 1 
                 puts "We found #{results.length} record matching your search field and value:"
@@ -70,51 +70,51 @@ class Display
             end
         else 
             puts
-            puts "***** SORRY, your search did not return any results. *****"
+            puts '***** SORRY, your search did not return any results. *****'
             puts
         end
     end
 
     def self.print_invalid_menu_selection
         puts
-        puts "***** SORRY, that is not a valid menu option. *****"
+        puts '***** SORRY, that is not a valid menu option. *****'
         puts
     end
 
     def self.print_sign_out
         puts
-        puts "Thanks for using Zendesk Searcher!"
+        puts 'Thanks for using Zendesk Searcher!'
         puts
     end
 
     def self.print_field_message
         puts
-        puts "Which field would you like to search within?"
+        puts 'Which field would you like to search within?'
     end
 
     def self.print_value_message
         puts
-        puts "Which value would you like to search for within that field?"
+        puts 'Which value would you like to search for within that field?'
     end
 
     def self.print_all_fields(data)
         puts
-        puts "Here are all possible field options for your search:"
+        puts 'Here are all possible field options for your search:'
         puts
-        puts "These are the TICKET fields:"
-        data[:tickets][0].each do |key, value|
+        puts 'These are the TICKET fields:'
+        data[:tickets].first.each do |key, _value|
             puts "  #{key}"
         end
         puts '----------------------------------'
         puts
-        puts "These are the ORGANISATION fields:"
-        data[:organisations][0].each do |key, value|
+        puts 'These are the ORGANISATION fields:'
+        data[:organisations].first.each do |key, _value|
             puts "  #{key}"
         end
         puts '----------------------------------'
         puts
-        puts "These are the USER fields:"
-        data[:users][0].each do |key, value|
+        puts 'These are the USER fields:'
+        data[:users].first.each do |key, _value|
             puts "  #{key}"
         end
         puts '----------------------------------'

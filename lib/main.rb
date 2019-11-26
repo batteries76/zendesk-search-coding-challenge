@@ -28,17 +28,22 @@ class Main
         Display.print_main_options
         menu_selection = Display.get_user_selection
 
+        # THIS LOOP CONTROLS THE MAIN MENU
         while menu_selection != 'q'
 
+            # CHECK THE INPUT IS VALID
             if main_menu_valid_input? menu_selection
 
+                # VALID INPUT, AND '1' CHOSEN, SO INTO THE SEARCH
                 if menu_selection == '1'
 
                     Display.print_sub_menu_options
                     menu_selection = Display.get_user_selection
 
+                    # SEARCH LOOP INITIATED
                     while true
 
+                        # VALID INPUT CHECK FOR THIS SUB MENU
                         if sub_menu_valid_input? menu_selection
 
                             # BREAK OUT TO OUTER LOOP IF WANTING THE MAIN MENU
@@ -58,26 +63,28 @@ class Main
                                 handle_search_path menu_selection                      
 
                             end
+                        # CATCH THE INVALID INPUT FOR SUB MENU
                         else
-
+                            
                             Display.print_invalid_menu_selection
 
                         end
-
+                        # PRESENT THE SUB MENU OPTIONS AGAIN
                         Display.print_sub_menu_options
                         menu_selection = Display.get_user_selection
 
                     end
-
+                # THE REMAINING OPTION OF THE MAIN MENU, '2'
                 else
 
                     Display.print_all_fields(@data)
 
                 end
-
+                # PRESENT THE MAIN MENU OPTIONS AGAIN
                 Display.print_main_options
                 menu_selection = Display.get_user_selection 
 
+            # THIS IS CATCHING THE MAIN MENU BAD INPUT
             else
 
                 Display.print_invalid_menu_selection
@@ -139,7 +146,3 @@ class Main
     end
 
 end
-
-main = Main.new 
-main.main_run
-

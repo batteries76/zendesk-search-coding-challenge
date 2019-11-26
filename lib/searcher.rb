@@ -27,29 +27,25 @@ class Searcher
 
         result_array = []
 
+        nested_values = ['domain_names', 'tags']
+
         data_type.each do |data_element|
-            if search_field == "domain_names"
-                if data_element["domain_names"]
-                    data_element["domain_names"].each do |domain|
-                        if domain == search_value
+            if data_element[search_field]
+                if nested_values.include? search_field
+                    data_element[search_field].each do |element|
+                        if element == search_value
                             result_array << data_element
                         end
                     end
-                end
-            elsif search_field == "tags"
-                if data_element["tags"]
-                    data_element["tags"].each do |tag|
-                        if tag == search_value
-                            result_array << data_element
-                        end
+                else 
+                    if data_element[search_field].to_s == search_value
+                        result_array << data_element
                     end
                 end
-            elsif data_element[search_field].to_s == search_value
-                result_array << data_element
             end
         end
 
-        return result_array
-    end 
+        result_array
+    end
 
 end
