@@ -44,7 +44,7 @@ class Searcher
                         end
                     end
                 end
-            elsif data_element[search_field] == search_value
+            elsif data_element[search_field].to_s == search_value
                 result_array << data_element
             end
         end

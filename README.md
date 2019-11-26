@@ -29,3 +29,8 @@ Using RSpec 3.8
 - created_at etc and dates and search
 - trying to make code dry trade-offs
 - downcase and upcase issues (and other user input issues)
+- checking for booleans
+
+## extensions
+- dates
+- different 
