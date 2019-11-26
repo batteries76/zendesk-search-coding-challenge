@@ -127,7 +127,15 @@ class Main
 
         elsif menu_selection == '2'
 
-            results = @search_instance.search_organisations(query)
+            if query[:field] == '_id'
+                id_results = @search_instance.search_organisations_by_id(query)
+                print "ID_RESULTS"
+                print id_results
+                Display.print_org_id_results(id_results)
+                return
+            else
+                results = @search_instance.search_organisations(query)
+            end
 
         else 
 

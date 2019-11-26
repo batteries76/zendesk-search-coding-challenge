@@ -15,6 +15,41 @@ class Searcher
         search_general(query, @organisation_data)
     end
 
+    def search_organisations_by_id(query)
+
+        org_result = search_general(query, @organisation_data)
+
+        if org_result.count > 0
+
+            query = {
+                field: 'organization_id',
+                value: query[:value]
+            }
+            
+            ticket_results = search_tickets(query)
+            user_results = search_users(query)
+
+            ticket_ids = []
+            ticket_results.each do |ticket|
+                ticket_ids << ticket["_id"]
+            end
+
+            user_ids = []
+            user_results.each do |user|
+                user_ids << user["_id"]
+            end
+
+            return {
+                organisation: org_result,
+                ticket_ids: ticket_ids,
+                user_ids: user_ids
+            }
+
+        else 
+            return nil
+        end
+    end
+
     def search_users(query)
         search_general(query, @user_data)
     end

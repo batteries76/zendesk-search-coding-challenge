@@ -75,6 +75,17 @@ class Display
         end
     end
 
+    def self.print_org_id_results(id_results)
+        print_results(id_results[:organisation])
+        puts
+        puts "  This ORGANISATION has the following related TICKETS and USERS"
+        puts "    -------------------------------------------------------------"
+        puts "    Related TICKET ids: #{id_results[:ticket_ids]}"
+        puts "    Related USER ids: #{id_results[:user_ids]}"
+        puts
+        puts '*****************************'
+    end
+
     def self.print_invalid_menu_selection
         puts
         puts '***** SORRY, that is NOT a VALID MENU OPTION. *****'

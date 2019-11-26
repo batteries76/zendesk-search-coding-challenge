@@ -85,6 +85,8 @@ RSpec.describe Searcher do
       end
 
       # ************************************
+      # ************************************
+      # ************************************
     
       describe '#search_organisations' do
         it 'returns one result for an id search' do
@@ -146,6 +148,8 @@ RSpec.describe Searcher do
           end
       end
 
+      # ************************************
+      # ************************************
       # ************************************
     
       describe '#search_users' do
