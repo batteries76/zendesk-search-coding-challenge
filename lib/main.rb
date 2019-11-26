@@ -10,7 +10,7 @@ class Main
         tickets = Loader.load_tickets
         organisations = Loader.load_organisations
         users = Loader.load_users
-        @data = {
+        data = {
             tickets: tickets,
             organisations: organisations,
             users: users
@@ -27,7 +27,7 @@ class Main
         menu_selection = Display.get_user_selection
 
         while menu_selection != 'q'
-\
+
             valid_path_array = ['1', '2']
 
             if valid_path_array.include? menu_selection
@@ -60,7 +60,7 @@ class Main
                         else
 
                             Display.print_invalid_menu_selection
-                            
+
                         end
 
                         Display.print_sub_menu_options
