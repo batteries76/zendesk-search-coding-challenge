@@ -28,3 +28,4 @@ Using RSpec 3.8
 - domain names and tags
 - created_at etc and dates and search
 - trying to make code dry trade-offs
+- downcase and upcase issues (and other user input issues)

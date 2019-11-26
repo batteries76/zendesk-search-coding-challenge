@@ -70,14 +70,14 @@ class Display
             end
         else 
             puts
-            puts "*** Sorry, your search did not return any results. ***"
+            puts "***** SORRY, your search did not return any results. *****"
             puts
         end
     end
 
     def self.print_invalid_menu_selection
         puts
-        puts "Sorry, that is not a valid menu option."
+        puts "***** SORRY, that is not a valid menu option. *****"
         puts
     end
 

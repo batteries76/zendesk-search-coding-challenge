@@ -10,12 +10,14 @@ class Main
         tickets = Loader.load_tickets
         organisations = Loader.load_organisations
         users = Loader.load_users
-        data = {
+
+        @data = {
             tickets: tickets,
             organisations: organisations,
             users: users
         }
-        @search_instance = Searcher.new data 
+
+        @search_instance = Searcher.new @data 
 
     end
 
@@ -28,9 +30,7 @@ class Main
 
         while menu_selection != 'q'
 
-            valid_path_array = ['1', '2']
-
-            if valid_path_array.include? menu_selection
+            if main_menu_valid_input? menu_selection
 
                 if menu_selection == '1'
 
@@ -39,19 +39,20 @@ class Main
 
                     while true
 
-                        valid_sub_path_array = ['1', '2', '3', 'm', 'q']
+                        if sub_menu_valid_input? menu_selection
 
-                        if valid_sub_path_array.include? menu_selection 
-                            # BREAK BACK DOWN TO MAIN MENU LOOP
+                            # BREAK OUT TO OUTER LOOP IF WANTING THE MAIN MENU
                             if menu_selection == 'm'
                                 
                                 break
-                            # EXIT THE WHOLE PROGRAM
+
+                            # EXIT THE WHOLE PROGRAM IF THEY WANT TO QUIT
                             elsif menu_selection == 'q'
 
                                 Display.print_sign_out
                                 exit
-
+                            
+                            # OTHERWISE PERFORM THE SEARCH
                             else
 
                                 handle_search_path menu_selection                      
@@ -70,7 +71,7 @@ class Main
 
                 else
 
-                    Display.print_all_fields(data)
+                    Display.print_all_fields(@data)
 
                 end
 
@@ -121,6 +122,20 @@ class Main
         end
 
         Display.print_results(results)
+    end
+
+    def main_menu_valid_input? menu_selection
+
+        valid_path_array = ['1', '2']
+        valid_path_array.include? menu_selection
+
+    end
+
+    def sub_menu_valid_input? menu_selection
+
+        valid_sub_path_array = ['1', '2', '3', 'm', 'q']
+        valid_sub_path_array.include? menu_selection 
+
     end
 
 end
