@@ -19,7 +19,7 @@ class Display
         puts "  Enter 'q' to QUIT the Zendesk search program."
     end
 
-    def self.print_sub_options
+    def self.print_sub_menu_options
         puts
         puts "=================="
         puts
