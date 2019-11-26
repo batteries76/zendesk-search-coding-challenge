@@ -2,7 +2,6 @@ require_relative 'loader'
 require_relative 'searcher'
 require_relative 'display'
 
-
 class Main
 
     def initialize 
@@ -29,6 +28,15 @@ class Main
         menu_selection = Display.get_user_selection
 
         # THIS LOOP CONTROLS THE MAIN MENU
+        main_menu_loop menu_selection
+
+        Display.print_sign_out
+
+    end
+
+    private 
+
+    def main_menu_loop menu_selection
         while menu_selection != 'q'
 
             # CHECK THE INPUT IS VALID
@@ -41,39 +49,8 @@ class Main
                     menu_selection = Display.get_user_selection
 
                     # SEARCH LOOP INITIATED
-                    while true
+                    sub_menu_loop menu_selection
 
-                        # VALID INPUT CHECK FOR THIS SUB MENU
-                        if sub_menu_valid_input? menu_selection
-
-                            # BREAK OUT TO OUTER LOOP IF WANTING THE MAIN MENU
-                            if menu_selection == 'm'
-                                
-                                break
-
-                            # EXIT THE WHOLE PROGRAM IF THEY WANT TO QUIT FROM THE SUB MENU
-                            elsif menu_selection == 'q'
-
-                                Display.print_sign_out
-                                exit
-                            
-                            # OTHERWISE PERFORM THE SEARCH
-                            else
-
-                                handle_search_path menu_selection                      
-
-                            end
-                        # CATCH THE INVALID INPUT FOR SUB MENU
-                        else
-                            
-                            Display.print_invalid_menu_selection
-
-                        end
-                        # PRESENT THE SUB MENU OPTIONS AGAIN
-                        Display.print_sub_menu_options
-                        menu_selection = Display.get_user_selection
-
-                    end
                 # THE REMAINING OPTION OF THE MAIN MENU, '2'
                 else
 
@@ -91,15 +68,45 @@ class Main
                 Display.print_main_options
                 menu_selection = Display.get_user_selection
 
-            end   
-            
-        end
-
-        Display.print_sign_out
-
+            end 
+        end  
     end
 
-    private 
+    def sub_menu_loop menu_selection
+        while true
+
+            # VALID INPUT CHECK FOR THIS SUB MENU
+            if sub_menu_valid_input? menu_selection
+
+                # BREAK OUT TO OUTER LOOP IF WANTING THE MAIN MENU
+                if menu_selection == 'm'
+                    
+                    break
+
+                # EXIT THE WHOLE PROGRAM IF THEY WANT TO QUIT FROM THE SUB MENU
+                elsif menu_selection == 'q'
+
+                    Display.print_sign_out
+                    exit
+                
+                # OTHERWISE PERFORM THE SEARCH
+                else
+
+                    handle_search_path menu_selection                      
+
+                end
+            # CATCH THE INVALID INPUT FOR SUB MENU
+            else
+                
+                Display.print_invalid_menu_selection
+
+            end
+            # PRESENT THE SUB MENU OPTIONS AGAIN
+            Display.print_sub_menu_options
+            menu_selection = Display.get_user_selection
+
+        end
+    end
 
     def handle_search_path menu_selection
 

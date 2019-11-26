@@ -30,7 +30,7 @@ class Searcher
         nested_values = ['domain_names', 'tags']
 
         data_type.each do |data_element|
-            if data_element[search_field]
+            if data_element[search_field] != nil
                 if nested_values.include? search_field
                     data_element[search_field].each do |element|
                         if element == search_value
