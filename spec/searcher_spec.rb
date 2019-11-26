@@ -159,12 +159,32 @@ RSpec.describe Searcher do
       end
 
       describe '#search_users' do
-        it 'returns one result for an id search' do
+        it 'returns one result for an tags field search of Frizzleburg' do
             query = {
-                field: "_id",
-                value: "6"
+                field: "tags",
+                value: "Frizzleburg"
             }
             expect(search_instance.search_users(query).count).to eq(1)
+          end
+      end
+
+      describe '#search_users' do
+        it 'returns 47 result for an verified field search of false' do
+            query = {
+                field: "verified",
+                value: "false"
+            }
+            expect(search_instance.search_users(query).count).to eq(47)
+          end
+      end
+
+      describe '#search_users' do
+        it 'returns 27 result for an locale field search of zh-CN' do
+            query = {
+                field: "locale",
+                value: "zh-CN"
+            }
+            expect(search_instance.search_users(query).count).to eq(27)
           end
       end
 

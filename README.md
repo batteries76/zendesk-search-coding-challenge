@@ -34,6 +34,7 @@ Using RSpec 3.8
 - forgiveness around underscores
 - checking in the nested layer for arrays. why not kind of?
 - yes, I have Rubocop, but I also have some preferences around certain things. Letting some code breathe, and other times keeping it compact.
+- I have some guesses about the data and links between the three sets, but taking it further could be a fool's errand
 
 ## extensions
 - dates
