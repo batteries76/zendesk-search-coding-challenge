@@ -1,19 +1,19 @@
 ## To Get Things Running
 Use your ruby manager to change to 2.5.0
 If it is rbenv:
-> rbenv install 2.5.0
+`> rbenv install 2.5.0`
 and then: 
-> rbenv local 2.5.0
+`> rbenv local 2.5.0`
 
 Then install the gem dependencies
-> bundle install
+`> bundle install`
 
 To run the search program
-> ruby lib/run.rb
+`> ruby lib/run.rb`
 
 ## Assumptions, Limitations, and Extentions
 
-This project is (quite wonderfully) open ended. There are many ways to structure it, and some of the choices relate to how far that you think you might get, and others you can leave out there in hope. Yes, keeping it extensible is ideal, but then there will always be some tricky aspects where you must find the path of least resistance in the time. I'm not sure I made the right calls, and there are some elements that I feel are very unsatisfying. But I also stand by certain choices.
+This project is (quite wonderfully) open ended. There are many ways to structure it, and some of the choices relate to how far that you think you might get, and others you can leave out there in hope. Yes, keeping it extensible is ideal, but then there will always be some tricky aspects where you must find the path of least resistance in the time. I'm not sure I made the right calls, and there are some elements that I feel are very unsatisfying - but I also stand by certain choices (for now).
 
 I am making the assumption that the person reading this will fairly readily understand the structure of this project, and can see (and understand) the decisions that I made on a apex level, and so I'm not going to expound extensively in this area:
 - The run.rb runs it.
@@ -47,6 +47,7 @@ Some areas of choice, limitation, and difficulty:
 - I have some knowledge, and some guesses about the data and links between the three sets, but taking it further could be a fool's errand:
     This is two-fold. At this point the only related data I provide occurs when the user search for an organisation id. This is because 1. I simply don't have the intelligence to nail the generalised structure for something more involved, and 2, as discussed, providing extra data on everything every time is more confusing for the user. Furthermore, I am only providing the ids. Lame? Well, they are already using a search system - they can use those. And also, I'm not giving a heap of confusing results. Or is this a mistake? I hope not.
 - I'm not totally confient about the sturuce of this app. The main function in terms of writing the logic didn't worry me, but I did have people revoew it, and they found it tough to read and understand, and I then portioned it out into other methods. I do think this is better, although it's borderline. 
+- testing not a strong point. Display, and other areas are tricky.
 
 
 ## Extensions
