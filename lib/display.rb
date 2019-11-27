@@ -38,7 +38,23 @@ class Display
         input = gets.strip
     end
 
-    def self.print_results(results)
+    def self.print_one_result(result)
+
+        result.each do |key, value|
+            if value.class == String
+                puts "  #{key}: \"#{value}\""
+            else
+                puts "  #{key}: #{value}"
+            end
+        end
+        puts
+        puts '***************************************'
+        puts
+
+    end
+
+    def self.print_org_and_related(results)
+
         if results.length > 0
             puts
             puts '*** Here are your results: ***'
@@ -54,36 +70,25 @@ class Display
                 puts '***************************************'
                 puts
             end
-
-            results.each_with_index do |result_hash, index|
-                puts index + 1
-                result_hash.each do |key, value|
-                    if value.class == String
-                        puts "  #{key}: \"#{value}\""
-                    else
-                        puts "  #{key}: #{value}"
-                    end
-                end
-                puts
-                puts '***************************************'
-                puts
-            end
         else 
             puts
             puts '***** SORRY, your search did NOT return ANY RESULTS. *****'
             puts
         end
-    end
 
-    def self.print_org_id_results(id_results)
-        print_results(id_results[:organisation])
-        puts
-        puts "  NOTE: This ORGANISATION has the following related TICKETS and USERS"
-        puts "    -------------------------------------------------------------"
-        puts "    Related TICKET ids: #{id_results[:ticket_ids]}"
-        puts "    Related USER ids: #{id_results[:user_ids]}"
-        puts
-        puts '*****************************'
+        results.each_with_index do |result, index|
+
+            puts index + 1
+            print_one_result(result[:organisation])
+
+            puts
+            puts "  NOTE: This ORGANISATION has the following related TICKETS and USERS"
+            puts "    -------------------------------------------------------------"
+            puts "    Related TICKET ids: #{result[:related_ticket_ids]}"
+            puts "    Related USER ids: #{result[:related_user_ids]}"
+            puts
+            puts '*****************************'
+        end
     end
 
     def self.print_invalid_menu_selection

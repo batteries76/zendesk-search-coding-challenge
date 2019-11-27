@@ -15,39 +15,45 @@ class Searcher
         search_general(query, @organisation_data)
     end
 
-    def search_organisations_by_id(query)
+    def search_organisations_with_related(query)
 
-        org_result = search_general(query, @organisation_data)
+        org_results = search_organisations(query)
 
-        if org_result.count > 0
+        array_of_orgs_and_related = []
+
+        org_results.each do |org|
+
+            org_and_related_hash = {
+                organisation: org,
+                related_ticket_ids: [],
+                related_user_ids: []
+            }
 
             query = {
                 field: 'organization_id',
-                value: query[:value]
+                value: org["_id"].to_s
             }
-            
+
             ticket_results = search_tickets(query)
             user_results = search_users(query)
 
-            ticket_ids = []
-            ticket_results.each do |ticket|
-                ticket_ids << ticket["_id"]
+            ticket_ids = ticket_results.map do |ticket|
+                ticket["_id"]
             end
 
-            user_ids = []
-            user_results.each do |user|
-                user_ids << user["_id"]
+            user_ids = user_results.map do |user|
+                user["_id"]
             end
 
-            return {
-                organisation: org_result,
-                ticket_ids: ticket_ids,
-                user_ids: user_ids
-            }
+            org_and_related_hash[:related_ticket_ids] = ticket_ids
+            org_and_related_hash[:related_user_ids] = user_ids
 
-        else 
-            return nil
+            array_of_orgs_and_related << org_and_related_hash
+
         end
+
+        return array_of_orgs_and_related
+
     end
 
     def search_users(query)

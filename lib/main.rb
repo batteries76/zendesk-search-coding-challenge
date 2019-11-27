@@ -124,26 +124,20 @@ class Main
         if menu_selection == '1'
 
             results = @search_instance.search_tickets(query)
+            Display.print_results(results)
 
         elsif menu_selection == '2'
 
-            if query[:field] == '_id'
-                id_results = @search_instance.search_organisations_by_id(query)
-                print "ID_RESULTS"
-                print id_results
-                Display.print_org_id_results(id_results)
-                return
-            else
-                results = @search_instance.search_organisations(query)
-            end
+            results = @search_instance.search_organisations_with_related(query)
+            Display.print_org_and_related(results)
 
         else 
 
             results = @search_instance.search_users(query)
+            Display.print_results(results)
 
         end
 
-        Display.print_results(results)
     end
 
     def main_menu_valid_input? menu_selection
