@@ -64,11 +64,11 @@ Some areas of choice, limitation, and difficulty:
 
 - Testing:
 
-    I have to admit not a strong point. Display, and other areas are tricky. I have done several unit tests over the course of writing this app. I went down the rabbithole of how best to test the IO, and in the end I settled on testing it myself. I am keen to learn more in this area. 
+    I have to admit not a strong point. Display, and other areas are tricky. I have done several unit tests over the course of writing this app. I went down the rabbithole of how best to test the IO, and in the end I settled on testing it myself. I am keen to learn more in this area, and to become a more competent and systematic programmer (including in areas like commits and commit messages).
 
 
 ## Extensions
 - Dates (including addded menu features)
 - Different conections
 - User input (forgiving, regex)
-- Testing: full 
+- Testing: full end-to-end and IO testing
