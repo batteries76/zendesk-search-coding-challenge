@@ -1,8 +1,8 @@
-## To run
+## To Get Things Running
 Use your ruby manager to change to 2.5.0
-if it is rbenv:
+If it is rbenv:
 > rbenv install 2.5.0
-
+and then: 
 > rbenv local 2.5.0
 
 Then install the gem dependencies
@@ -11,22 +11,19 @@ Then install the gem dependencies
 To run the search program
 > ruby lib/run.rb
 
-## TBDs
-1. Add in org related tests
+## Assumptions, Limitations, and Extentions
 
-## Assumptions, limitations, and extentions
+This project is (quite wonderfully) open ended. There are many ways to structure it, and some of the choices relate to how far that you think you might get, and others you can leave out there in hope. Yes, keeping it extensible is ideal, but then there will always be some tricky aspects where you must find the path of least resistance in the time. I'm not sure I made the right calls, and there are some elements that I feel are very unsatisfying. But I also stand by certain choices.
 
-This project is (quite wonderfully) open ended. There are many ways to structure it, and some of the choices relate to how far that you think you might get, and others you can leave out there in hope. Yes, keeping it extensible is ideal, but then there will always be some tricky aspects (at least for my brain) where you must find the path of least resistance in the time. I'm not sure I made the right calls, and there are some elements that I feel are very unsatisfying. But I also stand by certain choices.
-
-I am making the assumption that the person reading this will fairly readily understand the structure of this project, and can see the decisions that I made on a apex level (although may be baffled by some decisions), and so I'm not going to expound extensively in this area:
-- The run.rb runs it
-- main.rb is the controller
-- The Display class handles IO
-- The Loader loads,
+I am making the assumption that the person reading this will fairly readily understand the structure of this project, and can see (and understand) the decisions that I made on a apex level, and so I'm not going to expound extensively in this area:
+- The run.rb runs it.
+- The Main class is basically the controller for the project, and pulls from the following classes.
+- The Display class handles IO.
+- The Loader loads the data.
 - And the Searcher searches.
-Maybe not the best choices, but hopefully not crazy.
 
-What follows is not a user manual for a random bystander, but more a discussion to the makers of this to give an indication of why I made the choices that I made here. (As in, I'm not expecting a random GitHub user to try to understand this repository.)
+### Discussion
+What follows is not a user manual for a random bystander, but more a discussion to the makers of this to give an indication of why I made the choices that I made here. (That is, I'm not expecting a random GitHub user to try to understand this repository.)
 
 Some areas of choice, limitation, and difficulty:
 - Different display options: 
@@ -49,7 +46,7 @@ Some areas of choice, limitation, and difficulty:
     I totally understand why there are standards and Rubocop and all these things. This is a failing on my part, and the result of coding alone and teaching too long. It's not perfect code by any means, and perhaps even less lovely Rubocop code. I am happy to learn the systems, and I don't deny certain things make things easier. I do actually think carefully about why I leave a line here or there, or why I leave brackets in (teacher's issue, largely). I do like explicit, readable code, and tend to overwrite rather than underwrite. I also do love Ruby, but I love many languages, and started with C. Brackets don't scare me, and at times I prefer them. I digress. 
 - I have some knowledge, and some guesses about the data and links between the three sets, but taking it further could be a fool's errand:
     This is two-fold. At this point the only related data I provide occurs when the user search for an organisation id. This is because 1. I simply don't have the intelligence to nail the generalised structure for something more involved, and 2, as discussed, providing extra data on everything every time is more confusing for the user. Furthermore, I am only providing the ids. Lame? Well, they are already using a search system - they can use those. And also, I'm not giving a heap of confusing results. Or is this a mistake? I hope not.
-- I'm not totslly confient about the sturuce of this app. The main function in terms of writing the logic didn't worry me, but I did have people revoew it, and they found it tough to read and understand, and I then portioned it out into other methods. I do think this is better, although it's borderline. 
+- I'm not totally confient about the sturuce of this app. The main function in terms of writing the logic didn't worry me, but I did have people revoew it, and they found it tough to read and understand, and I then portioned it out into other methods. I do think this is better, although it's borderline. 
 
 
 ## Extensions

@@ -18,6 +18,11 @@ class Main
 
         @search_instance = Searcher.new @data 
 
+        @menu_options = {
+            main_menu_options: ['1', '2', 'q'],
+            search_menu_options: ['1', '2', '3', 'm', 'q']
+        }
+
     end
 
     def main_run
@@ -142,14 +147,14 @@ class Main
 
     def main_menu_valid_input? menu_selection
 
-        valid_path_array = ['1', '2']
+        valid_path_array = @menu_options[:main_menu_options]
         valid_path_array.include? menu_selection
 
     end
 
     def sub_menu_valid_input? menu_selection
 
-        valid_sub_path_array = ['1', '2', '3', 'm', 'q']
+        valid_sub_path_array = @menu_options[:search_menu_options]
         valid_sub_path_array.include? menu_selection 
 
     end

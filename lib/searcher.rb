@@ -62,7 +62,7 @@ class Searcher
 
     private
 
-    def search_general(query, data_type)
+    def search_general(query, data)
         search_field = query[:field]
         search_value = query[:value]
 
@@ -70,20 +70,22 @@ class Searcher
 
         nested_values = ['domain_names', 'tags']
 
-        data_type.each do |data_element|
-            if data_element[search_field] != nil
-                if nested_values.include? search_field
+        data.each do |data_element|
+            if nested_values.include? search_field
+                # This line stops the .each breaking in specific unusual circumstances
+                if data_element[search_field] != nil
                     data_element[search_field].each do |element|
                         if element == search_value
                             result_array << data_element
                         end
                     end
-                else 
-                    if data_element[search_field].to_s == search_value
-                        result_array << data_element
-                    end
+                end
+            else 
+                if data_element[search_field].to_s == search_value
+                    result_array << data_element
                 end
             end
+
         end
 
         result_array

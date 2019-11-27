@@ -47,23 +47,16 @@ class Display
                 puts "  #{key}: #{value}"
             end
         end
-        puts
-        puts '***************************************'
-        puts
 
     end
 
-    def self.print_org_and_related(results)
-
+    def self.print_results(results)
         if results.length > 0
             puts
-            puts '*** Here are your results: ***'
+            puts '******** Here are your results: ********'
             puts
             if results.length == 1 
                 puts "We found #{results.length} record matching your search field and value:"
-                puts 
-                puts '***************************************'
-                puts
             else
                 puts "We found #{results.length} records matching your search field and value:"
                 puts 
@@ -78,6 +71,42 @@ class Display
 
         results.each_with_index do |result, index|
 
+            puts
+            puts '***************************************'
+            puts
+
+            puts index + 1
+            print_one_result(result)
+
+        end
+    end
+
+    def self.print_org_and_related(results)
+
+        if results.length > 0
+            puts
+            puts '******** Here are your results: ********'
+            puts
+            if results.length == 1 
+                puts "We found #{results.length} record matching your search field and value:"
+            else
+                puts "We found #{results.length} records matching your search field and value:"
+                puts 
+                puts '***************************************'
+                puts
+            end
+        else 
+            puts
+            puts '***** SORRY, your search did NOT return ANY RESULTS. *****'
+            puts
+        end
+
+        results.each_with_index do |result, index|
+
+            puts
+            puts '***************************************'
+            puts
+
             puts index + 1
             print_one_result(result[:organisation])
 
@@ -87,7 +116,7 @@ class Display
             puts "    Related TICKET ids: #{result[:related_ticket_ids]}"
             puts "    Related USER ids: #{result[:related_user_ids]}"
             puts
-            puts '*****************************'
+
         end
     end
 
