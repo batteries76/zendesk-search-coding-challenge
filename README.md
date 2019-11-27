@@ -1,14 +1,21 @@
 ## To Get Things Running
+
 Use your ruby manager to change to 2.5.0
+
 If it is rbenv:
+
 `> rbenv install 2.5.0`
+
 and then: 
+
 `> rbenv local 2.5.0`
 
 Then install the gem dependencies
+
 `> bundle install`
 
 To run the search program
+
 `> ruby lib/run.rb`
 
 ## Assumptions, Limitations, and Extentions
