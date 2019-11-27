@@ -64,7 +64,7 @@ Some areas of choice, limitation, and difficulty:
 
 - Testing:
 
-    I have to admit not a strong point. Display, and other areas are tricky. I have done several unit tests over the course of writing this app. I went down the rabbithole of how best to test the IO, and in the end I settled on testing it myself. I am keen to learn more in this area, and to become a more competent and systematic programmer (including in areas like commits and commit messages).
+    I have to admit not a strong point for me so far. I am very willing to improve in this area. Display, and other areas are tricky. I have done several unit tests over the course of writing this app. I went down the rabbithole of how best to test the IO, and in the end I settled on testing it myself. I am keen to learn more in this area, and to become a more competent and systematic programmer (including in areas like commits and commit messages, and TDD patterns).
 
 
 ## Extensions

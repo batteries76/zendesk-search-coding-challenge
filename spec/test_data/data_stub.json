@@ -1,0 +1,42 @@
+[
+    {
+        "name": "max",
+        "age": 30,
+        "married": false,
+        "tags": [
+            "a",
+            "b",
+            "d"
+        ]
+    },
+    {
+        "name": "pete",
+        "age": 35,
+        "married": false,
+        "domain_names": [
+            "a",
+            "b",
+            "c"
+        ]
+    },
+    {
+        "name": "gretch",
+        "age": 25,
+        "married": true,
+        "tags": [
+            "e",
+            "f",
+            "a"
+        ]
+    },
+    {
+        "name": "leonel",
+        "age": 21,
+        "married": false,
+        "tags": [
+            "a",
+            "h",
+            "f"
+        ]
+    }
+]

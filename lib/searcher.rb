@@ -60,7 +60,7 @@ class Searcher
         search_general(query, @user_data)
     end
 
-    private
+    # private
 
     def search_general(query, data)
         search_field = query[:field]
